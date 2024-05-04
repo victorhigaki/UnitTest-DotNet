@@ -12,6 +12,11 @@ namespace Data.Repositories
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
+        public Task<bool> Add(User user)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<bool> Authenticate(string username, string password)
         {
             throw new NotImplementedException();

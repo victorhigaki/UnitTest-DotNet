@@ -6,6 +6,11 @@ namespace tdd_parte_2.tests.Helpers.TestDoubles.Dummy
 {
     public class UserRepositoryDummy : IUserRepository
     {
+        public Task<bool> Add(User user)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<bool> Authenticate(string username, string password)
         {
             throw new NotImplementedException();

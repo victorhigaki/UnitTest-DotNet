@@ -31,5 +31,10 @@ namespace tdd_parte_2.tests.Helpers.TestDoubles.Spy
         public string GetLastUsername() => _LastUsername;
         public string GetLastPassword() => _LastPassword;
         public int GetCount() => _count;
+
+        public Task<bool> Add(User user)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using Domain.Entidades;
 using Domain.Interfaces.Repositories;
 
-namespace tdd_parte_2.tests.Helpers.TestDoubles.Stub
+namespace tdd_parte_2.tests.Helpers.TestDoubles.Fakes
 {
-    public class UserRepositoryStub : IUserRepository
+    public class UserRepositoryFake : IUserRepository
     {
         public Task<bool> Add(User user)
         {
@@ -12,7 +12,7 @@ namespace tdd_parte_2.tests.Helpers.TestDoubles.Stub
 
         public async Task<bool> Authenticate(string username, string password)
         {
-            return false;
+            return (username.Equals("user") && password.Equals("12345"));
         }
 
         public async Task<User> GetUserByUsername(string username)

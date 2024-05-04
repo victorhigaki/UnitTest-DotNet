@@ -1,5 +1,6 @@
-﻿using Data.Repositories;
+﻿using Domain.Entidades;
 using Domain.Interfaces.Repositories;
+using Domain.Models;
 
 namespace Application.Services
 {
@@ -18,6 +19,19 @@ namespace Application.Services
             if (existingUser == null) return false;
         
             var success = await _repository.Authenticate(username, password);
+            return success;
+        }
+
+        public async Task<bool> Add(UserModel model)
+        {
+            var existingUser = await _repository.GetUserByUsername(model.Username);
+            if (existingUser != null) return false;
+
+            var user = new User();
+            user.Username = model.Username;
+            user.Password = model.Password;
+
+            var success = await _repository.Add(user);
             return success;
         }
     }
